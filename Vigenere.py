@@ -1,3 +1,17 @@
+def solve(text, key_word, algorithm):
+    #add keyword to itself until it reaches the length of the text
+    #note to self: change everything to uppercase later
+    key = key_word
+    count = 0
+    while (len(key) < len(text)):
+        print(key_word[count])
+        key = key + key_word[count]
+        if (count == len(key_word) - 1):
+            count = 0
+        else:
+            count += 1
+    print(key)
+
 def shift_letter(letter, key_letter, algorithm):
     letter = letter.lower()
     key_letter = key_letter.lower()
@@ -20,6 +34,8 @@ def shift_letter(letter, key_letter, algorithm):
             shift_index = shift_index % 26
     alpha_keys = list(alpha_index.keys())
     print(alpha_keys[shift_index])
+
+solve("hotdogstand", "boar", "encode")
 
 '''
 print("HOTDOGSTAND")
