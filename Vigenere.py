@@ -1,6 +1,15 @@
+import sys
+
 def solve(text, key_word, algorithm):
     #add keyword to itself until it reaches the length of the text
     #note to self: change everything to uppercase later
+    #note to self: do we have to account for one-letter keys too?? (autokey method?)
+    punc = '''!()-[]{};:'"\, <>./?@#$%^&*_~'' " "'''
+
+    for letter in text:
+        if letter in punc:
+            text = text.replace(letter, "")
+
     key = key_word
     count = 0
     while (len(key) < len(text)):
@@ -37,32 +46,11 @@ def shift_letter(letter, key_letter, algorithm):
     alpha_keys = list(alpha_index.keys())
     return alpha_keys[shift_index]
 
-solve("HOTDOGSTAND", "boar", "encode")
-
-'''
-print("HOTDOGSTAND")
-shift_letter("I", "B", "decode")
-shift_letter("C", "O", "decode")
-shift_letter("T", "A", "decode")
-shift_letter("U", "R", "decode")
-shift_letter("P", "B", "decode")
-shift_letter("U", "O", "decode")
-shift_letter("S", "A", "decode")
-shift_letter("K", "R", "decode")
-shift_letter("B", "B", "decode")
-shift_letter("B", "O", "decode")
-shift_letter("D", "A", "decode")
-
-print("ICTUPUSKBBD")
-shift_letter("H", "B", "encode")
-shift_letter("O", "O", "encode")
-shift_letter("T", "A", "encode")
-shift_letter("D", "R", "encode")
-shift_letter("O", "B", "encode")
-shift_letter("G", "O", "encode")
-shift_letter("S", "A", "encode")
-shift_letter("T", "R", "encode")
-shift_letter("A", "B", "encode")
-shift_letter("N", "O", "encode")
-shift_letter("D", "A", "encode")
-'''
+if __name__ == "__main__":
+    algorithm = sys.argv[1]
+    print(algorithm)
+    text = sys.argv[2]
+    print(text)
+    key_word = sys.argv[3]
+    print(key_word)
+    solve(text, key_word, algorithm)
