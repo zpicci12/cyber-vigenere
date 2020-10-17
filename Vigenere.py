@@ -48,9 +48,6 @@ def shift_letter(letter, key_letter, algorithm):
 
 if __name__ == "__main__":
     algorithm = sys.argv[1]
-    print(algorithm)
     text = sys.argv[2]
-    print(text)
     key_word = sys.argv[3]
-    print(key_word)
     solve(text, key_word, algorithm)
